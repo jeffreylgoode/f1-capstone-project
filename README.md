@@ -79,3 +79,14 @@ Using the baseline model, the project simulates:
 
 This enables direct comparison of 2‑stop vs. 3‑stop strategies.
 
+## Results
+**Key EDA Findings**
+Medium tires offer balanced performance, with moderate degradation
+Hard tires degrade slowest, providing the most stable long‑run pace
+Fuel‑corrected lap times reveal a clear nonlinear degradation curve across both compounds
+
+** Baseline Model Performance
+
+
+
+
