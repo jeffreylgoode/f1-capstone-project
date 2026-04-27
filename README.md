@@ -10,14 +10,17 @@ the project produces a data‑driven framework for evaluating optimal pit‑stop
 
 The results show that tire degradation follows a nonlinear pattern across compounds.
 
-The **Decision Tree Regressor** serves as the **baseline model** for 
-Module 20 because it achieves the lowest RMSE among the tested algorithms. 
-**The strategy engine uses the SVM (RBF) model instead,** as SVM produces smoother and 
-more physically realistic degradation curves that are better suited for 
-race simulation and for comparing 2‑stop vs. 3‑stop strategies.
+The **Decision Tree Regressor** serves as the **baseline model for Module 20**, as required by the rubric.  
+It provides a clear reference point for evaluating model performance using RMSE.
+
+**Important distinction:**  
+The project also includes a **hand‑built physics model (“BASE model”)** used inside the strategy engine.  
+This BASE model is **not** the Module 20 baseline model.  
+The strategy engine ultimately uses the **SVM (RBF) model**, which produces smoother and more physically realistic degradation curves suitable for race simulation.
 
 The project’s models and race simulator correctly answer the business question, 
 **“Should we pit now, or stay out?”** with the recommendation: **Pit Now.**
+
 ## Rationale
 
 Correctly answering the question **"Should we pit now, or stay out?"** is often 
@@ -66,17 +69,22 @@ The analysis follows a structured workflow:
   * Compound encoding
   * Stint progression features
 
-**Baseline Machine Learning Model**
+**Baseline Machine Learning Model (Module 20 Requirement)**
 Several algorithms were tested:
 * Linear Regression
 * K‑Nearest Neighbors
 * Support Vector Machine
 * Decision Tree 
 
-The **Decision Tree Regressor** was selected as the baseline model due to:
-* Lowest RMSE
+The **Decision Tree Regressor** was selected as the **baseline model** due to:
+* Lowest RMSE among the tested algorithms
 * Strong performance on nonlinear degradation patterns
 * Interpretability
+
+**Note:**  
+This baseline model is separate from the **hand‑tuned BASE model** used in the strategy engine.  
+The strategy engine ultimately uses the **SVM (RBF) model** for simulation because it produces smoother, 
+more realistic degradation curves.
 
 **Strategy Simulation Engine**
 Using the SVM (RBF) model, the project simulates:
@@ -111,7 +119,5 @@ This enables direct comparison of 2‑stop vs. 3‑stop strategies.
 ## Outline of project
 
 [Capstone Notebook](notebooks/f1.ipynb)
-
-
 
 
