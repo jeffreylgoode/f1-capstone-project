@@ -1,5 +1,5 @@
 f1-capstone-project
-# Forumala 1 Tire Degradation Modeling & Race Strategy Optimization
+# Formula 1 Tire Degradation Modeling & Race Strategy Optimization
 
 ## Executive Summary
 This project builds a predictive tire‑degradation model and race‑strategy simulation engine using real 
@@ -89,9 +89,9 @@ This enables direct comparison of 2‑stop vs. 3‑stop strategies.
 
 ## Results
 **Key EDA Finding (Qatar specific but extensible to other races)**
-Medium tires offer balanced performance, with moderate degradation
-Hard tires degrade slowest, providing the most stable long‑run pace
-Fuel‑corrected lap times reveal a clear nonlinear degradation curve across both compounds
+* Medium tires offer balanced performance, with moderate degradation
+* Hard tires degrade slowest, providing the most stable long‑run pace
+* Fuel‑corrected lap times reveal a clear nonlinear degradation curve across both compounds
 
 **Model Performance**
 
@@ -103,12 +103,13 @@ Fuel‑corrected lap times reveal a clear nonlinear degradation curve across bot
 * Strategy simulations confirm that pitting on lap 7 yields a faster race time than staying out
 
 ## Next Steps
-Expand the project to evaluate global modeling across multiple drivers
-Provide a more thorough analysis of model performance with tuning and cross-validation
-Add Evaluation and Deployment Sections
-Clean up project folder and remove extraneous files
+* Expand the project to evaluate global modeling across multiple drivers
+* Provide a more thorough analysis of model performance with tuning and cross-validation
+* Add Evaluation and Deployment Sections
+* Clean up project folder and remove extraneous files
 
 ## Outline of project
+
 [Capstone Notebook](notebooks/f1.ipynb)
 
 
