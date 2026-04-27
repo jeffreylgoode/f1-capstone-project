@@ -85,8 +85,17 @@ Medium tires offer balanced performance, with moderate degradation
 Hard tires degrade slowest, providing the most stable long‑run pace
 Fuel‑corrected lap times reveal a clear nonlinear degradation curve across both compounds
 
-** Baseline Model Performance
+**Model Performance**
 
+![Model Performance](images/model_performance.png)
+
+**Strategy Engine Findings**
+* Simulated outcomes were tuned to match historical data
+* Tire degradation model (SVM) was run against historical data and matched the 2025 Qatar results
+
+## Next Steps
+Module 24 will expand the project to evaluate global modeling across multiple drivers for a given race
+Provide a more thorough analysis of model performance with tuning and cross validation
 
 
 
