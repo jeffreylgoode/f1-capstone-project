@@ -94,8 +94,14 @@ Fuel‑corrected lap times reveal a clear nonlinear degradation curve across bot
 * Tire degradation model (SVM) was run against historical data and matched the 2025 Qatar results
 
 ## Next Steps
-Module 24 will expand the project to evaluate global modeling across multiple drivers for a given race
+Expand the project to evaluate global modeling across multiple drivers for a given race
 Provide a more thorough analysis of model performance with tuning and cross validation
+Add Evaluation and Deployment Sections
+Clean up project folder, removing extraneous files
+
+## Outline of project
+[Capstone Notebook](notebooks/f1.ipynb)
+
 
 
 
