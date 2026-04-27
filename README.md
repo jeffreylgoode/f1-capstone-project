@@ -69,7 +69,8 @@ The analysis follows a structured workflow:
   * Compound encoding
   * Stint progression features
 
-**Baseline Machine Learning Model (Module 20 Requirement)**
+**Baseline Machine Learning Model**
+
 Several algorithms were tested:
 * Linear Regression
 * K‑Nearest Neighbors
@@ -102,6 +103,9 @@ This enables direct comparison of 2‑stop vs. 3‑stop strategies.
 * Fuel‑corrected lap times reveal a clear nonlinear degradation curve across both compounds
 
 **Model Performance**
+
+Note the Decision Tree Regressor is the baseline model.
+
 
 ![Model Performance](images/model_performance.png)
 
