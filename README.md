@@ -9,10 +9,10 @@ the project produces a data‑driven framework for evaluating optimal pit‑stop
 
 The results show that tire degradation follows a nonlinear pattern across compounds.   
 
-The Decision Tree Regressor serves as the baseline model for Module 20 because it achieves the lowest RMSE among the 
-tested algorithms.
-The strategy engine uses a SVM (RBF) model, as SVM produces smoother and more physically realistic degradation 
-curves suitable for race simulation, enabling an evidence‑based comparison of 2‑stop vs. 3‑stop strategies.
+The Decision Tree Regressor serves as the baseline model for Module 20 because it achieves the lowest 
+RMSE among the tested algorithms. The strategy engine uses the SVM (RBF) model instead, as SVM produces smoother and 
+more physically realistic 
+degradation curves that are better suited for race simulation and for comparing 2‑stop vs. 3‑stop strategies.
 
 **The project's models and race simulator correctly answer the business question, "Should we pit now, or stay out", with the "Pit Now!"**
 
