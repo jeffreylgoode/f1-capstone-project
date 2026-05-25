@@ -1,6 +1,6 @@
 f1-capstone-project
 # Formula 1 Tire Degradation Modeling & Race Strategy Optimization
-
+Test for final submission, may 25 5:19pm
 ## Executive Summary
 This project builds a predictive tire‑degradation model and race‑strategy simulation engine using real 
 Formula 1 lap‑time data. Focusing on the 2025 Qatar Grand Prix (with drivers Max Verstappen and Oscar Piastri), 
