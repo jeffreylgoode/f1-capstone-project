@@ -45,7 +45,32 @@ Filtering out outlier data due to slow laps (pitting, yellow conditions, etc.) i
 
 ![Model Performance](images/filtered_lap_times.png)
 
-**Figure 1-1 Test Data Post Slow Lap Filtering**
+**Figure 1 Test Data Post Slow Lap Filtering**
+## Modeling
+
+The project utilized two supervised regression models, a linear regression model for predicting fuel-load lap time reduction and
+a 2nd degree polynomial for predicting tire degradation. 
+
+## Modeling Evaluation 
+
+The Linear Regression model is well documented in the F1 community as the best model for modeling fuel burn or fuel-load with laps getting 
+faster per lap as the car gets lighter due to a reduced fuel mass.  See Figure 2 below for the results of the fuel-load modeling.
+
+![Model Performance](images/fuel_modeling_performance.png)
+
+**Figure 2 Fuel Load Model Performance**
+
+Four models were evaluated for modeling tire degradation, see results in Figure 3 below.  As can be seen in the figure below, 
+Polynomial-2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results, shown by the blue line.   
+The KNN and Decision Tree models produced jagged results and not indicative of real-tire degradation.  The SVM model produced smother curves, but because 
+RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the Poly-2 model was chosen.  
+
+![Model Performance](images/four_models.png)
+
+**Figure 3 Tire Degradation Models and Model Performance**
+
+**Start here tomorrow**
+
 ## Rationale
 
 Correctly answering the question **"Should we pit now, or stay out?"** is often 
