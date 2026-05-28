@@ -1,26 +1,51 @@
 f1-capstone-project
 # Formula 1 Tire Degradation Modeling & Race Strategy Optimization
-Test for final submission, may 25 5:19pm
+Final Report by Jeff Goode
 ## Executive Summary
-This project builds a predictive tire‑degradation model and race‑strategy simulation engine using real 
-Formula 1 lap‑time data. Focusing on the 2025 Qatar Grand Prix (with drivers Max Verstappen and Oscar Piastri), 
-the analysis quantifies how tire compound, stint length, and fuel load influence lap performance. 
-Using exploratory data analysis (EDA), feature engineering, and a baseline machine‑learning model, 
-the project produces a data‑driven framework for evaluating optimal pit‑stop strategies.
+The goal of the project was to answer the question: **“As an F1 Team Principal, should we pit now or stay out?”.**   
 
-The results show that tire degradation follows a nonlinear pattern across compounds.
+As was evidenced in the 2025 Qatar Grand Prix, pitting at the wrong time can be the difference between winning and losing a race.   
 
-The **Decision Tree Regressor** serves as the **baseline model for Module 20**, as required by the rubric.  
-It provides a clear reference point for evaluating model performance using RMSE.
+Given the narrow margin between **First** and **Second** place for the 2025 season (only 2 points separated the top 2 drivers), winning or losing a single race can be the difference 
+in winning or losing the season.   
 
-**Important distinction:**  
-The project also includes a **hand‑built physics model (“BASE model”)** used inside the strategy engine.  
-This BASE model is **not** the Module 20 baseline model.  
-The strategy engine ultimately uses the **SVM (RBF) model**, which produces smoother and more physically realistic degradation curves suitable for race simulation.
+The challenge for F1 teams is to formulate a pit strategy (use of tire compounds and stint lengths) that adheres to 
+F1 rules and is adaptive to race day conditions (yellow flag conditions).
 
-The project’s models and race simulator correctly answer the business question, 
-**“Should we pit now, or stay out?”** with the recommendation: **Pit Now.**
+This project provides (outputs) optimal pre-race and race-day pit strategies, allowing the race engineer to answer the "pit now or stay out?" question on a lap by lap basis.
 
+## Model Outcomes
+
+Supervised regression models were built that predict F1 circuit specific race car lap times based 
+on a fuel-load model (linear regression) and tire degradation model (2nd degree polynomial) which form the basis of a race simulator.   
+A pit strategy optimizer uses the race simulator to evaluate and recommends the top three pre-race and race-day pit strategies. 
+
+## Data Acquisition
+
+The models used publicly available Formula 1 timing and telemetry data from [Formula1.com](https://formula1.com)
+and [FastF1 API](https://theoehrly.github.io/Fast-F1/)
+.  These sources provided access to historical races by year, venue and driver.   
+The FastF1 API is well documented as is the de facto source for historical F1 timing data. 
+
+The FastF1 API data source had all the necessary timing data to enable development of the lap time models.  
+Thirty-one columns of information are available per lap.  The project models used the columns indicated in green below in Table 1-1. 
+
+![Model Performance](images/fastf1_data_example.png)
+
+**Table 1.1 - Per Lap Timing Data**
+
+## Data Preprocessing/Preperation
+
+As indicated by Table 1.1, all available timing data needed for model development was available via the FastF1 API – 
+there were no missing values and inconsistencies, and there was no need to build proxies for missing data.
+
+The training data consisted of three Qatar races (2021, 2023, 2024) for the top 10 finishers with Max Verstappen’s lap information held out.   The test set was Max Verstappen’s lap information for Qatar 2025.  
+
+Filtering out outlier data due to slow laps (pitting, yellow conditions, etc.) is essential - for Qatar the filter was set at 95 seconds.   
+
+![Model Performance](images/filtered_lap_times.png)
+
+**Figure 1-1 Test Data Post Slow Lap Filtering**
 ## Rationale
 
 Correctly answering the question **"Should we pit now, or stay out?"** is often 
