@@ -26,7 +26,7 @@ Four models were evaluated for modeling tire degradation, see results in Figure 
 Polynomial-2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results, shown by the blue line.The KNN and Decision Tree models produced jagged results and not indicative of real-tire degradation.  The SVM model produced smother curves, but because 
 RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the **Poly-2 model** was chosen. Note: the **offset** term refers to adjustments needed to correct model lap times given current track and race car performance.  These adjustments are common during weekend practice and qualifying events.
 
-![Model Performance](images/four_models.png)
+![Model Performance](images/fou_models.png)
 
 **Figure 2 - Tire Degradation Models and Model Performance**
 
