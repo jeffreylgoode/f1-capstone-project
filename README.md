@@ -149,7 +149,7 @@ RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the Poly-2 mo
 
 [Link to Capstone Notebook](notebooks/f1.ipynb)
 
-[Link to Notebook Final Summary](notebooks/f1.ipynb#7.0FinalSummary)
+[Link to Notebook Final Summary](notebooks/f1.ipynb#7.0-Final-Summary)
 
 
 ## Contact and Further Information
