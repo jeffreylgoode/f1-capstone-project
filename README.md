@@ -149,7 +149,10 @@ RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the Poly-2 mo
 
 [Link to Capstone Notebook](notebooks/f1.ipynb)
 
-[Link to Notebook Final Summary](https://nbviewer.org/github/jeffreylgoode/f1-capstone-project/blob/main/notebooks/f1.ipynb#70-final-summary)
+For analysis of the 2025 Qatar F1 Grand Prix, see Section 6.0
+For the Final Summary, see Section 7.0
+For analysis of the 2026 Canadian F1 Grand Prix, see Section 10.0
+
 
 
 
