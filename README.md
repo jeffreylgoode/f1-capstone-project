@@ -32,7 +32,7 @@ RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the **Poly-2 
 
 ### Results and Conclusion
 
-Using the top 10 drivers from prior Qatar races as the training set, and the poly-2 model for predicting tire degradation, the strategy optimizer correctly identified Max's pre-race strategy (Medium tires) and correctly identified the "pit now" decision on lap 7 (a 42-second savings using Medium tires for 25 laps, and Hard tires for 25 laps).  
+Using the top 10 drivers from prior Qatar races as the training set, and the poly-2 model for predicting tire degradation, the strategy optimizer correctly identified Max's pre-race strategy (Medium tires) and correctly identified the "pit now" decision on lap 7 (a 42-second savings using Medium tires for 25 laps, and Hard tires for 25 laps).  If McLaren had been using this toolset (race simulator and strategy optimizer engine), they would have pitted on lap 7 and likely won the 2025 Qatar Grand Prix changing the trajectory of the 2025 season.
 
 ![Qatar 2025 Winning Strategy](images/strategy_engine_results_reva.png)
 
@@ -44,7 +44,7 @@ Using the top 10 drivers from prior Qatar races as the training set, and the pol
 
 **Treatment of Wet Weather Conditions**.  The model and strategy engine need to be modified to take into account weather and use of SOFT, WET and INTERMEDIATE tires as evidenced by the Canadian F1 2026 results shown in section 10.0 of the Jupyter notebook. 
 
-**Scaleability**. In order to run new races requires a lot of copy and paste work.
+**Scaleability**. Predicting new race outcomes requires a lot of copy and paste work.
 Accordingly, the code should be refactored, wrappers developed, to enable functional calls versus running the code in line.  
 
 ### Next Steps and Recommendations
@@ -79,7 +79,7 @@ Thirty-one columns of information are available per lap.  The project models use
 
 **Table 2 - Per Lap Timing Data**
 
-## Data Preprocessing/Preperation
+## Data Preprocessing/Preparation
 
 As indicated by Table 2, all available timing data needed for model development was available via the FastF1 API – 
 there were no missing values and inconsistencies, and there was no need to build proxies for missing data.
@@ -90,7 +90,7 @@ Filtering out outlier data due to slow laps (pitting, yellow conditions, etc.) i
 
 ![Model Performance](images/filtered_lap_times.png)
 
-**Figure 3 Test Data Post Slow Lap Filtering**
+**Figure 3 Test Data Post Slow-Lap Filtering**
 ## Modeling
 
 The project utilized two supervised regression models, a linear regression model for predicting fuel-load lap time reduction and
@@ -129,23 +129,38 @@ For the second stage of this capstone project (Module 24 Berkeley submission) a 
 ## Modeling Evaluation 
 
 The Linear Regression model is well documented in the F1 community as the best model for modeling fuel burn or fuel-load with laps getting 
-faster per lap as the car gets lighter due to a reduced fuel mass.  See Figure 2 below for the results of the fuel-load modeling.
+faster per lap as the car gets lighter due to a reduced fuel mass.  See Table 3 below for the results of the fuel-load modeling.
 
 ![Model Performance](images/fuel_modeling_performance.png)
 
-**Figure 2  - Fuel Load Model Performance**
+**Table 3  - Fuel Load Model Performance**
 
-Four models were evaluated for modeling tire degradation, see results in Figure 3 below.  As can be seen in the figure below, 
+
+After applying a year‑to‑year pace correction (offset) of −2.246 seconds, all models were evaluated on the held‑out Qatar 2025 race.  Four models were evaluated for modeling tire degradation, see results in Figure 4 below.  As can be seen in the figure, 
 Polynomial-2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results, shown by the blue line.   
+
 The KNN and Decision Tree models produced jagged results and not indicative of real-tire degradation.  The SVM model produced smother curves, but because 
 RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the Poly-2 model was chosen.  
 
+
+
+The compound‑specific degree‑2 polynomial model produced smooth, stable, and interpretable degradation curves. Once aligned with 2025 pace via the constant offset, it achieved strong performance (RMSE ≈ 0.71s, R² ≈ 0.63) and generalized cleanly across stints. For a race‑strategy engine, these qualities—physical realism, stability, and predictable behavior—are more important than marginal differences in RMSE or MAE.
 ![Model Performance](images/four_models.png)
 
-**Figure 3 Tire Degradation Models and Model Performance**
+**Figure 4 Tire Degradation Models and Model Performance**
 
+## Strategy Optimization Engine
 
-## Outline of project
+The Strategy Optimization Engine is the core decision‑making module of the project. It transforms the stint‑level tire and fuel models into full‑race strategic predictions, enabling both pre‑race planning and real‑time Safety Car decision logic. For this project, the engine is calibrated specifically for the 2025 Qatar Grand Prix, though the architecture is designed so it can be generalized to other circuits in future work.  
+
+**What the Engine Computes**
+* Pre‑race strategy predictions — evaluates all valid tire‑compound sequences and stint lengths to identify the fastest baseline race plans
+* Safety Car stay‑out logic — determines whether a driver should pit or remain on track when a Safety Car appears
+* Pit‑now vs stay‑out deltas — quantifies the time difference between immediate pitting and continuing the current stint
+* Full‑race simulation timing — computes total race time for each candidate strategy using the selected tire‑degradation model
+
+The Strategy Optimization Engine brings together all prior modeling work—fuel load effects, tire degradation, stint‑time prediction, and pit‑loss modeling—into a unified race‑strategy framework. It demonstrates how data‑driven modeling can replicate real‑world F1 decision‑making and provides a foundation for future generalization across circuits and seasons.
+## Outline of Project
 
 [Link to Capstone Jupyter Notebook](notebooks/f1.ipynb)
 
