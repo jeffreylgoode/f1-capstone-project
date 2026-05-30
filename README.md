@@ -20,7 +20,7 @@ This project provides (outputs) optimal pre-race and race-day pit strategies, al
 **Figure 1 - Max Verstappen's Qatar 2025 Winning Strategy**
 
 ### Findings
-A linear model was used to capture fuel‑burn effects, and a second‑degree polynomial (poly-2) model was selected as the most reliable approach for modeling tire degradation. Among the four candidate models evaluated, the second‑degree polynomial delivered the strongest overall performance on the 2025 Qatar test data and was therefore chosen for the strategy engine.
+A linear model was used to capture fuel‑burn effects, and a second‑degree polynomial (poly-2) model was selected as the most reliable approach for modeling tire degradation. Among the four candidate models evaluated, the second‑degree polynomial delivered the strongest overall performance on the 2025 Qatar test data and was therefore chosen for the tire degradation model.
 
 
 
@@ -60,7 +60,7 @@ A quantitative model that predicts lap‑time evolution and simulates race outco
 
 This project demonstrates how machine learning can support strategic decision‑making in a high‑performance environment.
 ## Research Question
-How can we model tire degradation and stint performance to predict total race time and identify the optimal pre-race and in-race pit‑stop strategy for the 2025 Qatar Grand Prix?
+How can we model tire degradation and stint performance to predict total race time and identify the optimal pre-race and race-day pit‑stop strategy for the 2025 Qatar Grand Prix?
 
 
 ## Data Acquisition
@@ -150,7 +150,7 @@ The KNN and Decision Tree models produced jagged results that are not indicative
 
 ![Model Performance](images/four_models.png)
 
-**Figure 4 Tire Degradation Models and Model Performance**
+**Figure 4 - Tire Degradation Models and Model Performance**
 
 ## Strategy Optimization Engine
 
