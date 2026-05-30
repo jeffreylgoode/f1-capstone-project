@@ -34,13 +34,20 @@ Using the top 10 drivers from prior Qatar races as the training set, and the pol
 
 **Table 1 - Tire Degradation Model and Strategy Optimizer Engine Results**
 
-### Future Reseach and Development
+### Key Contributions
+
+* Developed fuel‑burn and tire‑degradation predictive models
+* Built a full race simulator
+* Built a strategy optimization engine
+* Validated on Qatar 2025, evaluated for scale using Canada 2026
+
+### Future Research and Development
 
 **Probability of a Safety Car or Virtual Safety Car Event.**  Sometimes pit decisions should be delayed based on the probability of a SC or VSC event.  Coupling the probability of the event with tire (stint) age would yield a more realistic strategy engine.
 
 **Treatment of Wet Weather Conditions**.  The model and strategy engine need to be modified to take into account weather and use of SOFT, WET and INTERMEDIATE tires as evidenced by the Canadian F1 2026 results shown in section 10.0 of the Jupyter notebook. 
 
-**Scaleability**. Predicting new race outcomes requires a lot of copy and paste work.
+**Scalability**. Predicting new race outcomes requires a lot of copy and paste work.
 Accordingly, the code should be refactored, wrappers developed, to enable functional calls versus running the code in line.  
 
 ### Next Steps and Recommendations
