@@ -12,6 +12,7 @@ The 2025 season was won by McLaren's Lando Norris with 423 points vs Max Verstap
 
 To answer the "pit now or stay out" question requires selecting a pit strategy that will minimize lap times which in turn requires predicting lap time based on **fuel burn** and **tire degradation**.  In this project predictive models were built for both as part of a race simulator.  Additionally, a strategy optimization engine was developed to iterate all possibilities of tire compounds and tire usage.
 
+
 This project provides (outputs) optimal pre-race and race-day pit strategies, allowing the race engineer to answer the "pit now or stay out?" question on a lap-by-lap basis.
 
 ![Qatar 2025 Winning Strategy](images/qatar_2025_winning_strategy.png)
@@ -19,16 +20,11 @@ This project provides (outputs) optimal pre-race and race-day pit strategies, al
 **Figure 1 - Max Verstappen's Qatar 2025 Winning Strategy**
 
 ### Findings
+A linear model was used to capture fuel‑burn effects, and a second‑degree polynomial (poly-2) model was selected as the most reliable approach for modeling tire degradation. Among the four candidate models evaluated, the second‑degree polynomial delivered the strongest overall performance on the 2025 Qatar test data and was therefore chosen for the strategy engine.
 
-A linear regression model was selected to model fuel-burn and a 2nd-degree polynomial was selected as the best model for modeling tire degradation.  
 
-Four models were evaluated for modeling tire degradation, see results in Figure 2 below.  As can be seen in the figure, 
-Polynomial-2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results, shown by the blue line.The KNN and Decision Tree models produced jagged results and not indicative of real-tire degradation.  The SVM model produced smother curves, but because 
-RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the **Poly-2 model** was chosen. Note: the **offset** term refers to adjustments needed to correct model lap times given current track and race car performance.  These adjustments are common during weekend practice and qualifying events.
 
-![Model Performance](images/four_models.png)
 
-**Figure 2 - Tire Degradation Models and Model Performance**
 
 ### Results and Conclusion
 
@@ -127,27 +123,26 @@ For the second stage of this capstone project (Module 24 Berkeley submission) a 
 
 
 ## Modeling Evaluation 
-
+### Fuel Load Modeling
 The Linear Regression model is well documented in the F1 community as the best model for modeling fuel burn or fuel-load with laps getting 
-faster per lap as the car gets lighter due to a reduced fuel mass.  See Table 3 below for the results of the fuel-load modeling.
+faster per lap as the car gets lighter due to a reduced fuel mass.  See Table 3 below for the results of the fuel-load modeling.   The average of the slopes was used to model fuel burn for Qatar 2025, -0.080096 sec/lap.
 
 ![Model Performance](images/fuel_modeling_performance.png)
 
 **Table 3  - Fuel Load Model Performance**
+### Tire Degradation Modeling
 
+Before evaluating model performance on the 2025 Qatar race, a year‑to‑year pace correction was applied to account for differences in track evolution, car performance, and event‑specific conditions. This correction, expressed as an offset of −2.246 seconds, aligns the model’s baseline with the actual pace observed in 2025. After applying the offset, all models were evaluated on the held‑out Qatar 2025 race.
 
-After applying a year‑to‑year pace correction (offset) of −2.246 seconds, all models were evaluated on the held‑out Qatar 2025 race.  Four models were evaluated for modeling tire degradation, see results in Figure 4 below.  As can be seen in the figure, 
-Polynomial-2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results, shown by the blue line.   
+Slow laps (pit lane and SC/VSC periods) are removed from the plotted dataset to ensure that model comparisons reflect only true race‑pace behavior. Because these laps are excluded entirely—rather than shown as separate points—the prediction lines contain intentional gaps at laps 7–11 and 31–33. These discontinuities are expected and simply indicate where non‑representative laps were filtered out before plotting.
 
-The KNN and Decision Tree models produced jagged results and not indicative of real-tire degradation.  The SVM model produced smother curves, but because 
-RMSE (0.7088), MAE (0.5709) were lower and R2 (0.6257) was higher, the Poly-2 model was chosen.  
+With the offset applied and slow laps removed, four models were evaluated for modeling tire degradation, as shown in Figure 3. Polynomial‑2, Decision Tree, KNN, and SVM (RBF) were used to predict lap times for the test data, Max Verstappen’s 2025 Qatar results (blue line).
 
+The KNN and Decision Tree models produced jagged results that are not indicative of real tire‑degradation behavior. The SVM model produced smoother curves, but because RMSE (0.7088) and MAE (0.5709) were lower and R² (0.6257) was higher, the Poly‑2 model was chosen.
 
-
-The compound‑specific degree‑2 polynomial model produced smooth, stable, and interpretable degradation curves. Once aligned with 2025 pace via the constant offset, it achieved strong performance (RMSE ≈ 0.71s, R² ≈ 0.63) and generalized cleanly across stints. For a race‑strategy engine, these qualities—physical realism, stability, and predictable behavior—are more important than marginal differences in RMSE or MAE.
 ![Model Performance](images/four_models.png)
 
-**Figure 4 Tire Degradation Models and Model Performance**
+**Figure 3 Tire Degradation Models and Model Performance**
 
 ## Strategy Optimization Engine
 
