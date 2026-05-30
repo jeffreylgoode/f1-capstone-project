@@ -77,8 +77,12 @@ Thirty-one columns of information are available per lap.  The project models use
 
 ## Project Tool Set Hierarchy and Workflow
 
-The following diagram indicates how data comes into the project, and the relationship between the models, the race simulator and the strategy optimization engine.  The race week worflow describes the steps a race engineer would follow to prepare for an upcoming race. 
+The following diagram indicates how data comes into the project, and the relationship between the models, the race simulator and the strategy optimization engine.  The race week workflow describes the steps a race engineer would follow to prepare for an upcoming race. 
+
 ![Model Performance](images/workflow.png)
+
+**Figure 2 - Project Tool Set Hierarchy and Workflow**
+
 ## Data Preprocessing/Preparation
 
 As indicated by Table 2, all available timing data needed for model development was available via the FastF1 API – 
@@ -146,7 +150,7 @@ The KNN and Decision Tree models produced jagged results that are not indicative
 
 ![Model Performance](images/four_models.png)
 
-**Figure 3 Tire Degradation Models and Model Performance**
+**Figure 4 Tire Degradation Models and Model Performance**
 
 ## Strategy Optimization Engine
 
