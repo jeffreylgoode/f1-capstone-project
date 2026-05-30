@@ -75,6 +75,10 @@ Thirty-one columns of information are available per lap.  The project models use
 
 **Table 2 - Per Lap Timing Data**
 
+## Project Tool Set Hierarchy and Workflow
+
+The following diagram indicates how data comes into the project, and the relationship between the models, the race simulator and the strategy optimization engine.  The race week worflow describes the steps a race engineer would follow to prepare for an upcoming race. 
+![Model Performance](images/workflow.png)
 ## Data Preprocessing/Preparation
 
 As indicated by Table 2, all available timing data needed for model development was available via the FastF1 API – 
